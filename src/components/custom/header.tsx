@@ -1,5 +1,6 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
 import HeaderNav from "./headerNav";
+import Search from "./search";
 
 interface HeaderProps {
   navList: {
@@ -23,7 +24,8 @@ export default function Header({ navList }: HeaderProps) {
         />
         <AvatarFallback className="rounded-full">header</AvatarFallback>
       </Avatar>
-      <div>
+      <div className="flex justify-between items-center">
+        <Search />
         <nav>
           {navList.map((item) => (
             <HeaderNav key={item.path} path={item.path} title={item.title} />
