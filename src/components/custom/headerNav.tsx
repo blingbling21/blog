@@ -21,7 +21,7 @@ export default function HeaderNav({ path, title }: HeaderNavProps) {
       key={path}
       href={path}
       className={`hover:bg-gray-200 rounded px-3 py-2 ml-1 ${
-        pathname === path ? "bg-gray-200" : ""
+        pathname.includes(path) ? "bg-gray-200" : ""
       }`}
     >
       <span className="font-bold text-sm">{title}</span>

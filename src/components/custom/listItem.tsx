@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface ListItemProps {
   title: string;
   datetime: string;
@@ -14,12 +16,14 @@ interface ListItemProps {
 
 export default function ListItem({ title, datetime, summary }: ListItemProps) {
   return (
-    <div className="grid gap-1 bg-white p-4 mb-1 w-full rounded-md hover:shadow-md hover:bg-gray-100 cursor-pointer transition-all duration-200">
-      <h2 className="text-2xl font-bold">{title}</h2>
-      <div className="text-sm text-gray-500">{datetime}</div>
-      <div className="line-clamp-2 text-ellipsis overflow-hidden">
-        {summary}
+    <Link href={`/blog/${encodeURIComponent(title)}`} className="block w-full">
+      <div className="grid gap-1 bg-white p-4 mb-1 w-full rounded-md hover:shadow-md hover:bg-gray-100 cursor-pointer transition-all duration-200">
+        <h2 className="text-2xl font-bold">{title}</h2>
+        <div className="text-sm text-gray-500">{datetime}</div>
+        <div className="line-clamp-2 text-ellipsis overflow-hidden">
+          {summary}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

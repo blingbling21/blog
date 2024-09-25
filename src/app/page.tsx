@@ -1,10 +1,9 @@
-import PageList from "./pageList/page";
+import PageList from "./blog/pageList/page";
 
 export default function Home() {
   return (
     <div>
       <PageList />
-      
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
+import { getBlogsData } from "@/utils";
 import HeaderNav from "./headerNav";
 import Search from "./search";
 
@@ -14,7 +15,8 @@ interface HeaderProps {
  * @author cakeroll
  * @param {Array} navList - 导航列表
  */
-export default function Header({ navList }: HeaderProps) {
+export default async function Header({ navList }: HeaderProps) {
+  const list = await getBlogsData();
   return (
     <div className="flex justify-between items-center w-full h-full py-3">
       <Avatar className="w-10 h-10 rounded-full">
@@ -25,7 +27,7 @@ export default function Header({ navList }: HeaderProps) {
         <AvatarFallback className="rounded-full">header</AvatarFallback>
       </Avatar>
       <div className="flex justify-between items-center">
-        <Search />
+        <Search list={list} />
         <nav>
           {navList.map((item) => (
             <HeaderNav key={item.path} path={item.path} title={item.title} />
