@@ -14,6 +14,8 @@ import ListItem from "./listItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useState } from "react";
+import styles from "./search.module.scss";
+import { FrontMatter } from "@/utils";
 
 interface SearchPrama {
   list: {
@@ -21,9 +23,7 @@ interface SearchPrama {
       Record<string, unknown>,
       Record<string, unknown>
     >;
-    frontMatter: {
-      [key: string]: string;
-    };
+    frontMatter: FrontMatter;
   }[];
 }
 
@@ -53,7 +53,7 @@ export default function Search({ list }: SearchPrama) {
               {list.map((item) => (
                 <CommandItem
                   key={item.frontMatter.title}
-                  className="w-full py-0 data-[selected=true]:bg-white"
+                  className={`w-full  data-[selected=true]:bg-white ${styles.searchItemPadding}`}
                 >
                   <div className="w-full" onClick={() => setOpen(false)}>
                     <ListItem

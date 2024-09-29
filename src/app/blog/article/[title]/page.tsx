@@ -18,9 +18,15 @@ export default async function Blog({ params }: BlogParams) {
   const list = await getBlogsData();
   const decodedTitle = decodeURIComponent(params.title);
   const blog = list.find((item) => item.frontMatter.title === decodedTitle);
+  if (!blog) {
+    throw new Error(decodedTitle);
+  }
   return (
     <div>
-      <div>Blog post: {decodedTitle}</div>
+      <div className="mb-5">
+        <div className="text-3xl">{blog?.frontMatter?.title}</div>
+        <div className="text-sm text-gray-400">{blog?.frontMatter?.datetime}</div>
+      </div>
       {blog ? <MdRender source={blog.source} /> : <></>}
     </div>
   );

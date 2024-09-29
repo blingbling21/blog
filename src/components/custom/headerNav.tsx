@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 interface HeaderNavProps {
   path: string;
   title: string;
+  selectPathSlug: string;
 }
 
 /**
@@ -13,7 +14,7 @@ interface HeaderNavProps {
  * @param {string} path - 导航路径
  * @param {string} title - 导航标题
  */ 
-export default function HeaderNav({ path, title }: HeaderNavProps) {
+export default function HeaderNav({ path, title, selectPathSlug }: HeaderNavProps) {
   const pathname = usePathname();
 
   return (
@@ -21,7 +22,7 @@ export default function HeaderNav({ path, title }: HeaderNavProps) {
       key={path}
       href={path}
       className={`hover:bg-gray-200 rounded px-3 py-2 ml-1 ${
-        pathname.includes(path) ? "bg-gray-200" : ""
+        pathname.includes(selectPathSlug) ? "bg-gray-200" : ""
       }`}
     >
       <span className="font-bold text-sm">{title}</span>

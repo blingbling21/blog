@@ -7,6 +7,7 @@ interface HeaderProps {
   navList: {
     title: string;
     path: string;
+    selectPathSlug: string;
   }[];
 }
 
@@ -30,7 +31,7 @@ export default async function Header({ navList }: HeaderProps) {
         <Search list={list} />
         <nav>
           {navList.map((item) => (
-            <HeaderNav key={item.path} path={item.path} title={item.title} />
+            <HeaderNav key={item.path} path={item.path} title={item.title} selectPathSlug={item.selectPathSlug} />
           ))}
         </nav>
       </div>

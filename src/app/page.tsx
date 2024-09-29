@@ -1,9 +1,11 @@
-import PageList from "./blog/pageList/page";
+import { redirect } from "next/navigation";
+// import PageList from "./blog/pageList/page";
 
 export default function Home() {
-  return (
-    <div>
-      <PageList />
-    </div>
-  );
+  redirect("/blog/pageList");
+  // return (
+  //   <div>
+  //     <PageList />
+  //   </div>
+  // );
 }

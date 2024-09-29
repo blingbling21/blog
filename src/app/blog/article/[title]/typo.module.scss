@@ -330,7 +330,7 @@
   h6 {
     font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei,
       Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     color: #000;
     line-height: 1.35;
   }
@@ -347,26 +347,26 @@
     line-height: 1.35;
   }
 
-  h1 {
-    font-size: 2em;
-  }
+  // h1 {
+  //   font-size: 2em;
+  // }
 
   h2 {
-    font-size: 1.8em;
+    font-size: 24px;
   }
 
   h3 {
-    font-size: 1.6em;
+    font-size: 20px;
   }
 
   h4 {
-    font-size: 1.4em;
+    font-size: 16px;
   }
 
-  h5,
-  h6 {
-    font-size: 1.2em;
-  }
+  // h5,
+  // h6 {
+  //   font-size: 1.2em;
+  // }
 
   /* 在文章中，应该还原 ul 和 ol 的样式 */
   ul {

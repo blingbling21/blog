@@ -12,12 +12,13 @@ export default async function PageList() {
   return (
     <>
       {list.map((item) => (
-        <ListItem
-          key={item.frontMatter.title}
-          title={item.frontMatter.title}
-          datetime={item.frontMatter.datetime}
-          summary={item.frontMatter.summary}
-        />
+        <div className="w-full mb-5" key={item.frontMatter.title}>
+          <ListItem
+            title={item.frontMatter.title}
+            datetime={item.frontMatter.datetime}
+            summary={item.frontMatter.summary}
+          />
+        </div>
       ))}
     </>
   );

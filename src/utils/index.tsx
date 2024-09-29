@@ -3,6 +3,13 @@ import fs from "fs";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
+// 文档元素据
+export interface FrontMatter {
+  title: string;
+  datetime: string;
+  summary: string;
+}
+
 // blog文档地址
 const blogsDir = path.join(process.cwd(), "data/blogs");
 
@@ -19,7 +26,7 @@ export async function getBlogsData() {
     const mdSrouce = await serialize(content);
     return {
       source: mdSrouce,
-      frontMatter: data,
+      frontMatter: data as FrontMatter,
     };
   });
   const allBlogsData = await Promise.all(blogsData);

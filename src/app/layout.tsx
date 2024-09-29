@@ -16,18 +16,20 @@ export default async function RootLayout({
   const navList = [
     {
       title: "博客",
-      path: "/",
+      path: "/blog/pageList",
+      selectPathSlug: "/blog"
     },
     {
       title: "关于",
       path: "/about",
+      selectPathSlug: "/about"
     },
   ];
 
   return (
     <html lang="en">
       <body>
-        <div className="w-[1024px] mx-auto absolute top-0 left-0 right-0 z-10 bg-white/30 backdrop-blur-sm">
+        <div className="w-[1100px] mx-auto absolute top-0 left-0 right-0 z-10 bg-white/30 backdrop-blur-sm">
           <Header navList={navList} />
         </div>
         <ScrollArea className="h-[calc(100vh-40px)]">
