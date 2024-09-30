@@ -24,10 +24,12 @@ export default async function Blog({ params }: BlogParams) {
   return (
     <div>
       <div className="mb-5">
-        <div className="text-3xl">{blog?.frontMatter?.title}</div>
-        <div className="text-sm text-gray-400">{blog?.frontMatter?.datetime}</div>
+        <div className="text-3xl">{blog.frontMatter?.title}</div>
+        <div className="text-sm text-gray-400">
+          {blog.frontMatter?.datetime}
+        </div>
       </div>
-      {blog ? <MdRender source={blog.source} /> : <></>}
+      <MdRender source={blog.source} />
     </div>
   );
 }
