@@ -12,17 +12,13 @@ import {
 } from "@/components/ui/command";
 import ListItem from "./listItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useState } from "react";
 import styles from "./search.module.scss";
 import { FrontMatter } from "@/utils";
 
 interface SearchPrama {
   list: {
-    source: MDXRemoteSerializeResult<
-      Record<string, unknown>,
-      Record<string, unknown>
-    >;
+    source: string;
     frontMatter: FrontMatter;
   }[];
 }

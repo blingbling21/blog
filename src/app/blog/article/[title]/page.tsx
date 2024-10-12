@@ -18,6 +18,7 @@ export default async function Blog({ params }: BlogParams) {
   const list = await getBlogsData();
   const decodedTitle = decodeURIComponent(params.title);
   const blog = list.find((item) => item.frontMatter.title === decodedTitle);
+  
   if (!blog) {
     throw new Error(decodedTitle);
   }

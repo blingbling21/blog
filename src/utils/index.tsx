@@ -1,9 +1,8 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
 
-// 文档元素据
+// 文档元数据
 export interface FrontMatter {
   title: string;
   datetime: string;
@@ -23,9 +22,9 @@ export async function getBlogsData() {
     const fullPath = path.join(blogsDir, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { content, data } = matter(fileContents);
-    const mdSrouce = await serialize(content);
+    // const mdSrouce = await serialize(content);
     return {
-      source: mdSrouce,
+      source: content,
       frontMatter: data as FrontMatter,
     };
   });

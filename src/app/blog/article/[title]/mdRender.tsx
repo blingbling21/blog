@@ -1,14 +1,14 @@
-"use client";
-
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import styles from "./typo.module.scss";
 
 interface MdRenderProps {
-  source: MDXRemoteSerializeResult<Record<string, unknown>, Record<string, unknown>>
+  source: string;
 }
 
 export default function MdRender({ source }: MdRenderProps) {
-  return <div className={styles.mdRenderWrapper}>
-    <MDXRemote {...source} />
-  </div>
+  return (
+    <div className={styles.mdRenderWrapper}>
+      <MDXRemote source={source} />
+    </div>
+  );
 }
